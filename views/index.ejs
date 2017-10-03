@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container-fluid">
+		<div class="row">
+			<div
+				class="col-sm-offset-4 col-md-offset-3 col-lg-6"
+				style="margin-top: 10%;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Calculator</div>
+					<div class="panel-body">
+						<form class="form-horizontal" method="post" action="/findSolution">
+									   <%
+							  var input1=input1;
+							  var input2=input2;
+							  var result = result;
+							  var invalid = invalid;
+							  if(invalid ==1){ %>
+							  <label class="validation" style="color:red;">Error: Please enter both numbers.</label>
+							  <%}
+							  else if(invalid ==2){ %>
+							  <label class="validation" style="color:red;">Error: Divisor cannot be 0.</label>
+							  <%}
+								%>
+							<div class="form-group">
+								<label class="col-md-4 col-md-4 col-lg-4">Enter the first number:</label>
+								<div class="col-md-8 col-md-8 col-lg-8">
+								<input type="number" class="form-control" name="input1" id="input1" 
+								placeholder="Enter the first number" value = <%if(input1!=""){%><%=input1%><%}%>>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 col-md-4 col-lg-4">Enter the second number:</label>
+								<div class="col-md-8 col-md-8 col-lg-8">
+								<input type="number" class="form-control" name="input2" id="input2" 
+								placeholder="Enter the second number" value = <%if(input2!=""){%><%=input2%><%}%>>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 col-md-4 col-lg-4">Result:</label>
+								<div class="col-md-8 col-md-8 col-lg-8">
+								<input type="number" class="form-control" name="result" id="result" 
+								placeholder="Result" readonly value = <%if(result!=""){%><%=result%><%}%>>
+								</div>
+							</div>
+							
+							<div class="form-group">
+							<label class="col-md-4 col-md-4 col-lg-2">Operations:</label>
+							<button type="submit" class="btn btn-success" name="op" value="add">Addition</button>
+							<button type="submit" class="btn btn-success" name="op" value="subtract">Subtraction</button>
+							<button type="submit" class="btn btn-success" name="op" value="divide">Division</button>
+							<button type="submit" class="btn btn-success" name="op" value="multiply">Multiplication</button>
+							<button type="submit" class="btn btn-success" name="op" value="clear">Clear</button>
+							</div>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
